@@ -10,12 +10,12 @@ class Block {
     }
 
     calculateHash() {
-      return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString();
+        return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString();
     }
 }
 
 
-class Blockchain{
+class Blockchain {
     constructor() {
         this.chain = [this.createGenesisBlock()];
     }
@@ -35,7 +35,7 @@ class Blockchain{
     }
 
     isChainValid() {
-        for (let i = 1; i < this.chain.length; i++){
+        for (let i = 1; i < this.chain.length; i++) {
             const currentBlock = this.chain[i];
             const previousBlock = this.chain[i - 1];
 
@@ -56,6 +56,7 @@ let savjeeCoin = new Blockchain();
 savjeeCoin.addBlock(new Block(1, "20/07/2017", { amount: 4 }));
 savjeeCoin.addBlock(new Block(2, "20/07/2017", { amount: 8 }));
 
+console.log(JSON.stringify(savjeeCoin, null, 4))
 
 console.log('Blockchain valid? ' + savjeeCoin.isChainValid());
 

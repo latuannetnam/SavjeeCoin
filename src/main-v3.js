@@ -27,7 +27,7 @@ class Block {
             this.hash = this.calculateHash();
         }
 
-        console.log("BLOCK MINED: " + this.hash);
+        console.log("BLOCK MINED: " + this.hash + ". Nounce:" + this.nonce);
     }
 }
 
@@ -113,3 +113,5 @@ console.log('\n Starting the miner again...');
 savjeeCoin.minePendingTransactions('xaviers-address');
 
 console.log('\nBalance of xavier is', savjeeCoin.getBalanceOfAddress('xaviers-address'));
+
+console.log(JSON.stringify(savjeeCoin, null, 4))
